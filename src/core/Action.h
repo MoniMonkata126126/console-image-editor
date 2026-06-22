@@ -1,0 +1,32 @@
+#ifndef CONSOLE_IMAGE_EDITOR_ACTION_H
+#define CONSOLE_IMAGE_EDITOR_ACTION_H
+
+enum class Action : char{
+    UNKNOWN = -1,
+
+    GRAYSCALE,
+    MONOCHROME,
+    NEGATIVE,
+
+    ROTATE_RIGHT,
+    ROTATE_LEFT,
+    FLIP_TOP,
+    FLIP_LEFT,
+
+    UNDO,
+    REDO,
+
+    ADD,
+    PASTE,
+
+    LOAD,
+    SAVE,
+    LIST_SESSION,
+    SWITCH,
+    CLOSE,
+    EXIT,
+
+    ACTION_COUNT
+};
+
+#endif //CONSOLE_IMAGE_EDITOR_ACTION_H
