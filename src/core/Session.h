@@ -2,15 +2,15 @@
 #define CONSOLE_IMAGE_EDITOR_SESSION_H
 
 #include <vector>
-#include "Transformation.h"
+#include "action/Action.h"
 #include "CustomQueue.h"
-#include "Image.h"
+#include "image/Image.h"
 
 
 class Session {
 private:
-    std::vector<Transformation*> transformations;
-    CustomQueue<Transformation*> undoneTransformations;
+    std::vector<Action*> transformations;
+    CustomQueue<Action*> undoneTransformations;
     std::vector<Image*> images;
 };
 

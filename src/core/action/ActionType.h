@@ -1,7 +1,7 @@
-#ifndef CONSOLE_IMAGE_EDITOR_ACTION_H
-#define CONSOLE_IMAGE_EDITOR_ACTION_H
+#ifndef CONSOLE_IMAGE_EDITOR_ACTIONTYPE_H
+#define CONSOLE_IMAGE_EDITOR_ACTIONTYPE_H
 
-enum class Action : char{
+enum class ActionType : char{
     UNKNOWN = -1,
 
     GRAYSCALE,
