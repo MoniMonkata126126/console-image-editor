@@ -1,11 +1,11 @@
 #ifndef CONSOLE_IMAGE_EDITOR_FLIPLEFT_H
 #define CONSOLE_IMAGE_EDITOR_FLIPLEFT_H
-#include "../Transformer.h"
+#include "action/Transformer.h"
 
 
 class FlipLeft : Transformer {
 public:
-    FlipLeft(ActionType type, bool isFilter);
+    FlipLeft();
 
     FlipLeft(const FlipLeft& other) = default;
 

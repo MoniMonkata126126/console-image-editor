@@ -1,11 +1,7 @@
-#include "../Grayscale.h"
+#include "Grayscale.h"
 #include "ActionHandler.h"
-#include "CustomExceptions.h"
 
-Grayscale::Grayscale(ActionType type, bool isFilter) : Transformer(type, isFilter) {
-    if (!isFilter) {
-        throw CustomExceptions::ACTION_TYPE_IS_FILTER;
-    }
+Grayscale::Grayscale() : Transformer(ActionType::GRAYSCALE, true) {
 }
 
 void Grayscale::handle(ActionHandler *actionHandler) {

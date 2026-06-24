@@ -1,12 +1,9 @@
-#include "../RotateRight.h"
+#include "RotateRight.h"
 
 #include "ActionHandler.h"
-#include "CustomExceptions.h"
 
-RotateRight::RotateRight(ActionType type, bool isFilter) : Transformer(type, isFilter) {
-    if (isFilter) {
-        throw CustomExceptions::ACTION_TYPE_NOT_FILTER;
-    }
+
+RotateRight::RotateRight() : Transformer(ActionType::ROTATE_RIGHT, false) {
 }
 
 void RotateRight::handle(ActionHandler *actionHandler) {

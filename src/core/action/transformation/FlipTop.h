@@ -1,11 +1,11 @@
 #ifndef CONSOLE_IMAGE_EDITOR_FLIPTOP_H
 #define CONSOLE_IMAGE_EDITOR_FLIPTOP_H
-#include "../Transformer.h"
+#include "action/Transformer.h"
 
 
 class FlipTop : public Transformer {
 public:
-    FlipTop(ActionType type, bool isFilter);
+    FlipTop();
 
     FlipTop(const FlipTop& other) = default;
 

@@ -30,6 +30,18 @@ target_sources(console_image_editor PRIVATE
         action/transformation/FlipTop.cpp
         action/transformation/FlipLeft.h
         action/transformation/FlipLeft.cpp
+        action/Undo.h
+        action/Undo.cpp
+        action/Redo.h
+        action/Redo.cpp
+        action/Add.h
+        action/Add.cpp
+        action/Paste.h
+        action/Paste.cpp
+        action/Load.h
+        action/Load.cpp
+        action/Save.h
+        action/Save.cpp
 )
 
 target_include_directories(console_image_editor PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})

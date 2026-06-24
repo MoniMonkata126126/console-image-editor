@@ -1,11 +1,7 @@
-#include "../Monochrome.h"
+#include "Monochrome.h"
 #include "ActionHandler.h"
-#include "CustomExceptions.h"
 
-Monochrome::Monochrome(ActionType type, bool isFilter) : Transformer(type, isFilter) {
-    if (!isFilter) {
-        throw CustomExceptions::ACTION_TYPE_IS_FILTER;
-    }
+Monochrome::Monochrome() : Transformer(ActionType::MONOCHROME, true) {
 }
 
 void Monochrome::handle(ActionHandler *actionHandler) {

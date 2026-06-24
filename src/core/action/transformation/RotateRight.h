@@ -1,11 +1,11 @@
 #ifndef CONSOLE_IMAGE_EDITOR_ROTATERIGHT_H
 #define CONSOLE_IMAGE_EDITOR_ROTATERIGHT_H
-#include "../Transformer.h"
+#include "action/Transformer.h"
 
 
 class RotateRight : public Transformer {
 public:
-    RotateRight(ActionType type, bool isFilter);
+    RotateRight();
 
     RotateRight(const RotateRight& other) = default;
 

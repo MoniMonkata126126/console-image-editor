@@ -1,12 +1,8 @@
-#include "../Negative.h"
+#include "Negative.h"
 
 #include "ActionHandler.h"
-#include "CustomExceptions.h"
 
-Negative::Negative(ActionType type, bool isFilter) : Transformer(type, isFilter) {
-    if (!isFilter) {
-        throw CustomExceptions::ACTION_TYPE_IS_FILTER;
-    }
+Negative::Negative() : Transformer(ActionType::NEGATIVE, true) {
 }
 
 void Negative::handle(ActionHandler *actionHandler) {

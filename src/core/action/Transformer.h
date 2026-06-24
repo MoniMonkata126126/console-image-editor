@@ -9,7 +9,7 @@ protected:
     bool isFilter;
 
 public:
-    explicit Transformer(ActionType type, bool isFilter);
+    Transformer(ActionType type, bool isFilter);
 
     Transformer(const Transformer& other) = default;
 
@@ -20,7 +20,6 @@ public:
     virtual Image& transform(Image& img) const = 0;
 
     bool getIsFilter() const;
-
 };
 
 

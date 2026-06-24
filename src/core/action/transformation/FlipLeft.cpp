@@ -1,12 +1,8 @@
-#include "../FlipLeft.h"
+#include "FlipLeft.h"
 
 #include "ActionHandler.h"
-#include "CustomExceptions.h"
 
-FlipLeft::FlipLeft(ActionType type, bool isFilter) : Transformer(type, isFilter) {
-    if (isFilter) {
-        throw CustomExceptions::ACTION_TYPE_NOT_FILTER;
-    }
+FlipLeft::FlipLeft() : Transformer(ActionType::FLIP_LEFT, false) {
 }
 
 void FlipLeft::handle(ActionHandler *actionHandler) {

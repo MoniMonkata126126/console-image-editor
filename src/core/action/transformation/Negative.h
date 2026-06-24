@@ -1,11 +1,11 @@
 #ifndef CONSOLE_IMAGE_EDITOR_NEGATIVE_H
 #define CONSOLE_IMAGE_EDITOR_NEGATIVE_H
-#include "../Transformer.h"
+#include "action/Transformer.h"
 
 
 class Negative : public Transformer{
 public:
-    Negative(ActionType type, bool isFilter);
+    Negative();
 
     Negative(const Negative& other) = default;
 
