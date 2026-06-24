@@ -2,7 +2,8 @@
 #define CONSOLE_IMAGE_EDITOR_ACTION_H
 
 #include "ActionType.h"
-#include "ActionHandler.h"
+
+class ActionHandler;
 
 class Action {
 private:

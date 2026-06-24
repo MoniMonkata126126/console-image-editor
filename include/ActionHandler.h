@@ -1,6 +1,7 @@
 #ifndef CONSOLE_IMAGE_EDITOR_ACTIONHANDLER_H
 #define CONSOLE_IMAGE_EDITOR_ACTIONHANDLER_H
 
+#include "action/Transformer.h"
 
 class Application;
 
@@ -20,27 +21,27 @@ public:
 
     virtual ~ActionHandler();
 
-    virtual void handleTransformation();
+    virtual void handleAction(Transformer* transformer);
 
-    virtual void handleUndo();
+    virtual void handleAction(Undo* undo);
 
-    virtual void handleRedo();
+    virtual void handleAction(Redo* redo);
 
-    virtual void handleAdd();
+    virtual void handleAction(Add* add);
 
-    void handlePaste();
+    void handleAction(Paste* paste);
 
-    void handleLoad();
+    void handleAction(Load* load);
 
-    void handleSave();
+    void handleAction(Save* save);
 
-    void handleListSession();
+    void handleAction(ListSession* listSession);
 
-    void handleSwitch();
+    void handleAction(Switch* actSwitch);
 
-    void handleClose();
+    void handleAction(Close* close);
 
-    void handleExit();
+    void handleAction(Exit* exit);
 };
 
 
