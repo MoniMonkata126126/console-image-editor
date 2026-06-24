@@ -17,11 +17,11 @@ public:
 
     ~ActionParser() = default;
 
-    std::string deserializeAction();
+    std::string deserializeAction() const;
 
-    static bool serializeAction(std::ostream& os, Action* action);
+    static bool serializeAction(std::ostream& os, const Action& action);
 
-    static bool serializeAction(std::ostream& os, Error* error);
+    static bool serializeError(std::ostream& os, const Error& error);
 
 };
 

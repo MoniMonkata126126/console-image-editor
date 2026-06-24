@@ -9,9 +9,9 @@ private:
     std::string errorMessage;
 
 public:
-    explicit Error(std::string error);
+    explicit Error(const std::string& error);
 
-    explicit Error(Action* action);
+    explicit Error(const Action* action);
 
     Error(const Error& other) = default;
 

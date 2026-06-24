@@ -11,11 +11,13 @@ private:
 public:
     explicit Action(ActionType type);
 
-    Action(const Action& other);
+    Action(const Action& other) = default;
 
-    Action& operator=(const Action& other);
+    Action& operator=(const Action& other) = default;
 
     virtual ~Action() = default;
+
+    ActionType getType() const;
 
     virtual void handle(ActionHandler* actionHandler) = 0;
 
