@@ -11,17 +11,11 @@ std::string ActionParser::deserializeAction() const {
     std::getline(this->is, line);
 
     if (this->is.eof() || this->is.fail()) {
-        if (this->is.eof()) {
-            std::cerr << "Failed reading: End of file reached\n";
-        }
-        else
-            std::cerr << "Failed reading: Command too long\n";
-        this->is.clear();
-        return std::string{};
+        return "exit";
     }
 
-    if (line.size() > 100) {
-        std::cout << "Invalid Command: Command too long";
+    if (line.size() > 1024) {
+        std::cout << "Invalid Command: Command too long\n";
         return std::string{};
     }
 

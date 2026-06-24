@@ -2,9 +2,14 @@
 
 #include "ActionHandler.h"
 
-Add::Add() : Action(ActionType::ADD) {
+
+Add::Add(const std::string& filePath) : Action(ActionType::ADD), filePath(filePath) {
 }
 
-void Add::handle(ActionHandler *actionHandler) {
+const std::string& Add::getFilePath() const {
+    return filePath;
+}
+
+void Add::handle(ActionHandler* actionHandler) {
     actionHandler->handleAction(this);
 }

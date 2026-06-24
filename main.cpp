@@ -1,16 +1,10 @@
-#include <iostream>
-#include <string>
-#include "receive/ConsoleActionParser.h"
-#include "Error.h"
+#include "Application.h"
+#include "receive/ConsoleActionReceiver.h"
 
 
 int main() {
-
-    const ConsoleActionParser parser;
-
-    const std::string str = parser.deserializeAction();
-
-    ConsoleActionParser::serializeError(std::cout, Error(str));
-
+    ConsoleActionReceiver receiver;
+    Application application(&receiver);
+    application.run();
     return 0;
 }

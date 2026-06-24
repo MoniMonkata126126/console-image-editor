@@ -1,12 +1,14 @@
 #ifndef CONSOLE_IMAGE_EDITOR_GRAYSCALE_H
 #define CONSOLE_IMAGE_EDITOR_GRAYSCALE_H
 
-#include "action/Transformer.h"
+#include "../Transformer.h"
 
 
 class Grayscale : public Transformer{
 public:
     Grayscale();
+
+    Grayscale(ActionType type, bool isFilter);
 
     Grayscale(const Grayscale& other) = default;
 
@@ -17,6 +19,8 @@ public:
     void handle(ActionHandler* actionHandler) override;
 
     Image& transform(Image& img) const override;
+
+    Transformer* clone() const override;
 
 };
 

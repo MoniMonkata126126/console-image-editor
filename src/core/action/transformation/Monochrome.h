@@ -1,11 +1,13 @@
 #ifndef CONSOLE_IMAGE_EDITOR_MONOCHROME_H
 #define CONSOLE_IMAGE_EDITOR_MONOCHROME_H
-#include "action/Transformer.h"
+#include "../Transformer.h"
 
 
 class Monochrome : public Transformer{
 public:
     Monochrome();
+
+    Monochrome(ActionType type, bool isFilter);
 
     Monochrome(const Monochrome& other) = default;
 
@@ -16,6 +18,8 @@ public:
     void handle(ActionHandler* actionHandler) override;
 
     Image& transform(Image& img) const override;
+
+    Transformer* clone() const override;
 };
 
 

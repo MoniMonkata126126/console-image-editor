@@ -4,6 +4,17 @@
 #include "action/Transformer.h"
 
 class Application;
+class UnknownAction;
+class Undo;
+class Redo;
+class Add;
+class Paste;
+class Load;
+class Save;
+class ListSession;
+class Switch;
+class Close;
+class Exit;
 
 
 class ActionHandler {
@@ -21,6 +32,8 @@ public:
 
     virtual ~ActionHandler();
 
+    virtual void handleAction(UnknownAction* unknownAction);
+
     virtual void handleAction(Transformer* transformer);
 
     virtual void handleAction(Undo* undo);
@@ -29,19 +42,19 @@ public:
 
     virtual void handleAction(Add* add);
 
-    void handleAction(Paste* paste);
+    virtual void handleAction(Paste* paste);
 
-    void handleAction(Load* load);
+    virtual void handleAction(Load* load);
 
-    void handleAction(Save* save);
+    virtual void handleAction(Save* save);
 
-    void handleAction(ListSession* listSession);
+    virtual void handleAction(ListSession* listSession);
 
-    void handleAction(Switch* actSwitch);
+    virtual void handleAction(Switch* actSwitch);
 
-    void handleAction(Close* close);
+    virtual void handleAction(Close* close);
 
-    void handleAction(Exit* exit);
+    virtual void handleAction(Exit* exit);
 };
 
 

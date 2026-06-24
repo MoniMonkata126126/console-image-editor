@@ -1,5 +1,6 @@
 #ifndef CONSOLE_IMAGE_EDITOR_REDO_H
 #define CONSOLE_IMAGE_EDITOR_REDO_H
+
 #include "Action.h"
 
 
@@ -11,7 +12,7 @@ public:
 
     Redo& operator=(const Redo& other) = default;
 
-    virtual ~Redo() override = default;
+    ~Redo() override = default;
 
     void handle(ActionHandler* actionHandler) override;
 };

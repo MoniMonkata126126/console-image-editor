@@ -2,10 +2,42 @@ target_sources(console_image_editor PRIVATE
         action/ActionType.h
         image/Image.cpp
         image/Image.h
+        image/format/ImageFileHelper.h
+        image/format/ImageFileHelper.cpp
+        image/format/PBMFormat.h
+        image/format/PBMFormat.cpp
+        image/format/PGMFormat.h
+        image/format/PGMFormat.cpp
+        image/format/PPMFormat.h
+        image/format/PPMFormat.cpp
+        image/format/BMPFormat.h
+        image/format/BMPFormat.cpp
         Session.cpp
         Session.h
         action/Action.cpp
         action/Action.h
+        action/UnknownAction.h
+        action/UnknownAction.cpp
+        action/Undo.h
+        action/Undo.cpp
+        action/Redo.h
+        action/Redo.cpp
+        action/Add.h
+        action/Add.cpp
+        action/Paste.h
+        action/Paste.cpp
+        action/Load.h
+        action/Load.cpp
+        action/Save.h
+        action/Save.cpp
+        action/ListSession.h
+        action/ListSession.cpp
+        action/Switch.h
+        action/Switch.cpp
+        action/Close.h
+        action/Close.cpp
+        action/Exit.h
+        action/Exit.cpp
         receive/ConsoleActionParser.h
         receive/ConsoleActionParser.cpp
         ActionHandler.cpp
@@ -30,18 +62,6 @@ target_sources(console_image_editor PRIVATE
         action/transformation/FlipTop.cpp
         action/transformation/FlipLeft.h
         action/transformation/FlipLeft.cpp
-        action/Undo.h
-        action/Undo.cpp
-        action/Redo.h
-        action/Redo.cpp
-        action/Add.h
-        action/Add.cpp
-        action/Paste.h
-        action/Paste.cpp
-        action/Load.h
-        action/Load.cpp
-        action/Save.h
-        action/Save.cpp
 )
 
 target_include_directories(console_image_editor PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})

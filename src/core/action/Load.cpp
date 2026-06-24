@@ -1,7 +1,15 @@
 #include "Load.h"
 
-Load::Load() : Action(ActionType::LOAD) {
+#include "ActionHandler.h"
+
+
+Load::Load(const std::vector<std::string>& filePaths) : Action(ActionType::LOAD), filePaths(filePaths) {
 }
 
-void Load::handle(ActionHandler *actionHandler) {
+const std::vector<std::string>& Load::getFilePaths() const {
+    return filePaths;
+}
+
+void Load::handle(ActionHandler* actionHandler) {
+    actionHandler->handleAction(this);
 }

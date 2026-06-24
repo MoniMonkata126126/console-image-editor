@@ -1,11 +1,13 @@
 #ifndef CONSOLE_IMAGE_EDITOR_FLIPLEFT_H
 #define CONSOLE_IMAGE_EDITOR_FLIPLEFT_H
-#include "action/Transformer.h"
+#include "../Transformer.h"
 
 
-class FlipLeft : Transformer {
+class FlipLeft : public Transformer {
 public:
     FlipLeft();
+
+    FlipLeft(ActionType type, bool isFilter);
 
     FlipLeft(const FlipLeft& other) = default;
 
@@ -16,6 +18,8 @@ public:
     void handle(ActionHandler* actionHandler) override;
 
     Image& transform(Image& img) const override;
+
+    Transformer* clone() const override;
 };
 
 

@@ -2,9 +2,10 @@
 
 #include "ActionHandler.h"
 
+
 Undo::Undo() : Action(ActionType::UNDO) {
 }
 
-void Undo::handle(ActionHandler *actionHandler) {
+void Undo::handle(ActionHandler* actionHandler) {
     actionHandler->handleAction(this);
 }

@@ -1,9 +1,10 @@
 #ifndef CONSOLE_IMAGE_EDITOR_UNDO_H
 #define CONSOLE_IMAGE_EDITOR_UNDO_H
+
 #include "Action.h"
 
 
-class Undo : public Action{
+class Undo : public Action {
 public:
     Undo();
 
@@ -11,7 +12,7 @@ public:
 
     Undo& operator=(const Undo& other) = default;
 
-    virtual ~Undo() override = default;
+    ~Undo() override = default;
 
     void handle(ActionHandler* actionHandler) override;
 };

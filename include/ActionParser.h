@@ -1,7 +1,7 @@
 #ifndef CONSOLE_IMAGE_EDITOR_ACTIONPARSER_H
 #define CONSOLE_IMAGE_EDITOR_ACTIONPARSER_H
 
-#include <istream>
+#include <iostream>
 #include "Error.h"
 
 class ActionParser {

@@ -1,11 +1,13 @@
 #ifndef CONSOLE_IMAGE_EDITOR_FLIPTOP_H
 #define CONSOLE_IMAGE_EDITOR_FLIPTOP_H
-#include "action/Transformer.h"
+#include "../Transformer.h"
 
 
 class FlipTop : public Transformer {
 public:
     FlipTop();
+
+    FlipTop(ActionType type, bool isFilter);
 
     FlipTop(const FlipTop& other) = default;
 
@@ -16,6 +18,8 @@ public:
     void handle(ActionHandler* actionHandler) override;
 
     Image& transform(Image& img) const override;
+
+    Transformer* clone() const override;
 };
 
 

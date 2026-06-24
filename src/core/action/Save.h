@@ -1,5 +1,6 @@
 #ifndef CONSOLE_IMAGE_EDITOR_SAVE_H
 #define CONSOLE_IMAGE_EDITOR_SAVE_H
+
 #include "Action.h"
 
 
@@ -11,7 +12,7 @@ public:
 
     Save& operator=(const Save& other) = default;
 
-    virtual ~Save() override = default;
+    ~Save() override = default;
 
     void handle(ActionHandler* actionHandler) override;
 };

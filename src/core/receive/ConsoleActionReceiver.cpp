@@ -1,5 +1,5 @@
-#include "ConsoleActionReceiver.h"
-#include "ConsoleActionParser.h"
+#include "receive/ConsoleActionReceiver.h"
+#include "receive/ConsoleActionParser.h"
 
 
 ConsoleActionReceiver::ConsoleActionReceiver() : ActionReceiver(ConsoleActionParser()) {
