@@ -112,7 +112,7 @@ void Application::addTransformationToCurrent(const Transformer* transformer) {
     }
 }
 
-void Application::addImageToCurrent(const std::string& filePath) {
+void Application::addImageToCurrent(const std::string& filePath) const {
     if (currentSession == nullptr) {
         std::cout << "No active session\n";
         return;
@@ -126,7 +126,7 @@ void Application::addImageToCurrent(const std::string& filePath) {
     }
 }
 
-void Application::undoCurrent() {
+void Application::undoCurrent() const {
     if (currentSession == nullptr) {
         std::cout << "No active session\n";
         return;
@@ -137,7 +137,7 @@ void Application::undoCurrent() {
     std::cout << message;
 }
 
-void Application::redoCurrent() {
+void Application::redoCurrent() const {
     if (currentSession == nullptr) {
         std::cout << "No active session\n";
         return;
@@ -148,7 +148,7 @@ void Application::redoCurrent() {
     std::cout << message;
 }
 
-void Application::pasteInCurrent(const std::string& sourceName, const std::string& destinationName, int posX, int posY) {
+void Application::pasteInCurrent(const std::string& sourceName, const std::string& destinationName, int posX, int posY) const {
     if (currentSession == nullptr) {
         std::cout << "No active session\n";
         return;
@@ -162,7 +162,7 @@ void Application::pasteInCurrent(const std::string& sourceName, const std::strin
     }
 }
 
-void Application::saveCurrent() {
+void Application::saveCurrent() const {
     if (currentSession == nullptr) {
         std::cout << "No active session\n";
         return;
@@ -179,7 +179,12 @@ void Application::listCurrentSession() const {
         return;
     }
 
-    currentSession->printInfo(std::cout);
+    std::string error;
+    currentSession->printInfo(std::cout, error);
+
+    if (!error.empty()) {
+        std::cerr << error;
+    }
 }
 
 void Application::switchSession(unsigned int sessionId) {

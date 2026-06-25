@@ -18,6 +18,7 @@ class Session {
 private:
     unsigned int id;
     std::vector<Transformer*> transformations;
+    //I would prefer using and std::queue for this task. There is a comment about it in function redo implementation
     std::vector<Transformer*> undoneTransforms;
     std::vector<SessionImage> images;
     bool hasUnsavedWork;
@@ -63,7 +64,7 @@ public:
 
     bool save(std::string& message);
 
-    void printInfo(std::ostream& os) const;
+    void printInfo(std::ostream& os, std::string& error) const;
 };
 
 

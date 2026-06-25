@@ -7,11 +7,6 @@
 RotateRight::RotateRight() : Transformer(ActionType::ROTATE_RIGHT, false) {
 }
 
-RotateRight::RotateRight(ActionType type, bool isFilter) : Transformer(type, isFilter) {
-    if (isFilter) {
-        throw CustomExceptions::ACTION_TYPE_NOT_FILTER;
-    }
-}
 
 void RotateRight::handle(ActionHandler *actionHandler) {
     actionHandler->handleAction(this);
@@ -36,6 +31,6 @@ Image & RotateRight::transform(Image &img) const {
     return img;
 }
 
-Transformer * RotateRight::clone() const {
+RotateRight * RotateRight::clone() const {
     return new RotateRight(*this);
 }

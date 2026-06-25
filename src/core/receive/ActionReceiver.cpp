@@ -53,9 +53,8 @@ bool isValidFormat(const std::string& str) {
 
     for (const std::string& format : formats) {
         int equals = true;
-        for (unsigned int j = (len - 1) - 3; j < len; j++ ) {
+        for (unsigned int j = ((len - 1) - 3); j < len; j++ ) {
             if (format[j - (len - 4)] != str[j]) {
-                std::cout << format[j - (len - 4)] << " and " << str[j] << "\n";
                 equals = false;
             }
         }
@@ -129,7 +128,7 @@ Action * ActionReceiver::createAction(std::string parsedAction) {
         return pt;
     }
 
-    if (tokens[0] == "load" && tokens.size() >= 2) {
+    if (tokens[0] == "load" && tokens.size() >= 2 && isValidFormat(tokens[1])) {
         std::vector<std::string> filePaths;
         for (size_t i = 1; i < tokens.size(); i++) {
             filePaths.push_back(tokens[i]);

@@ -27,11 +27,11 @@ Session::~Session() {
 }
 
 unsigned int Session::getId() const {
-    return id;
+    return this->id;
 }
 
 bool Session::getHasUnsavedWork() const {
-    return hasUnsavedWork;
+    return this->hasUnsavedWork;
 }
 
 void Session::clearUndoneTransforms() {
@@ -86,6 +86,12 @@ int Session::getGeometricTransformationColumn(ActionType type) const {
     return -1;
 }
 
+
+/* The states of this matrix are hard coded to represent these values:
+ * Columns: 0) rotate right; 1) rotate left; 2) flip top; 3) flip left;
+ * Rows: 0) identity; 1) rotate right 90 deg; 2) rotate right 180 deg; 3) rotate left 90 deg;
+ *       4) flipped top; 5) flipped left; 6) rotate right 90 deg + flipped top; 7) rotate right 90 deg + flipped left;
+ */
 int Session::calculateFinalGeometricState(const std::vector<Transformer*>& geometricTransformations) const {
     const int identity = 0;
     const int stateMatrix[8][4] = {
@@ -195,8 +201,13 @@ bool Session::redo(std::string& message) {
         return false;
     }
 
-    transformations.push_back(undoneTransforms.back());
-    undoneTransforms.pop_back();
+    /*
+     * I would rather use std::queue so this task is optimized and is O(1), not O(n) but it is not allowed
+     * I also thought about writing my own queue with a double-linked linked list, but it felt like overkill
+     * as we have not studied data structures and algorithms and I may make a mistake while implementing it
+    */
+    transformations.push_back(undoneTransforms.front());
+    undoneTransforms.erase(undoneTransforms.begin());
     hasUnsavedWork = true;
     message = "Redo completed\n";
     return true;
@@ -235,6 +246,11 @@ bool Session::paste(const std::string& sourceName, const std::string& destinatio
 }
 
 bool Session::save(std::string& message) {
+    if (!hasUnsavedWork) {
+        message = "Session is already saved\n";
+        return false;
+    }
+
     if (images.empty()) {
         message = "Session has no images\n";
         return false;
@@ -264,7 +280,12 @@ bool Session::save(std::string& message) {
     return allSaved;
 }
 
-void Session::printInfo(std::ostream& os) const {
+void Session::printInfo(std::ostream& os, std::string& error) const {
+    error.clear();
+    if (!os.good()) {
+        error += "Internal error: Bad output stream\n";
+        return;
+    }
     os << "Files in session with ID " << id << ":\n";
     for (size_t i = 0; i < images.size(); i++) {
         os << images[i].image->getNameWithoutExtension()

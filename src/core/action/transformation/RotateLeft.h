@@ -7,8 +7,6 @@ class RotateLeft : public Transformer{
 public:
     RotateLeft();
 
-    RotateLeft(ActionType type, bool isFilter);
-
     RotateLeft(const RotateLeft& other) = default;
 
     RotateLeft& operator=(const RotateLeft& other) = default;
@@ -19,7 +17,7 @@ public:
 
     Image& transform(Image& img) const override;
 
-    Transformer* clone() const override;
+    RotateLeft* clone() const override;
 };
 
 

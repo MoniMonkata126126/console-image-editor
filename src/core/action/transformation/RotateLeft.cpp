@@ -2,16 +2,11 @@
 
 #include <vector>
 #include "ActionHandler.h"
-#include "CustomExceptions.h"
+
 
 RotateLeft::RotateLeft() : Transformer(ActionType::ROTATE_LEFT, false) {
 }
 
-RotateLeft::RotateLeft(ActionType type, bool isFilter): Transformer(type, isFilter) {
-    if (isFilter) {
-        throw CustomExceptions::ACTION_TYPE_NOT_FILTER;
-    }
-}
 
 void RotateLeft::handle(ActionHandler *actionHandler) {
     actionHandler->handleAction(this);
@@ -36,6 +31,6 @@ Image & RotateLeft::transform(Image &img) const {
     return img;
 }
 
-Transformer * RotateLeft::clone() const {
+RotateLeft * RotateLeft::clone() const {
     return new RotateLeft(*this);
 }

@@ -40,15 +40,15 @@ public:
 
     void addTransformationToCurrent(const Transformer* transformer);
 
-    void addImageToCurrent(const std::string& filePath);
+    void addImageToCurrent(const std::string& filePath) const;
 
-    void undoCurrent();
+    void undoCurrent() const;
 
-    void redoCurrent();
+    void redoCurrent() const;
 
-    void pasteInCurrent(const std::string& sourceName, const std::string& destinationName, int posX, int posY);
+    void pasteInCurrent(const std::string& sourceName, const std::string& destinationName, int posX, int posY) const;
 
-    void saveCurrent();
+    void saveCurrent() const;
 
     void listCurrentSession() const;
 

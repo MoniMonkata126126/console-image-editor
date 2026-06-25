@@ -3,6 +3,13 @@
 #include <fstream>
 #include <vector>
 
+/*
+ * I have used Gemini during the writing process of the Image format classes but this one in particular.
+ * I needed it because I felt like I was always missing and forgetting some details about the image format,
+ * especially the format having multiple different variations of the format ( the header specifically )
+ * I believe not every variation is covered in the code as I have not intended to grant support for very old formats.
+ */
+
 static unsigned short readTwoByteNumber(std::istream& is) {
     unsigned char bytes[2] = {};
     is.read(reinterpret_cast<char*>(bytes), 2);

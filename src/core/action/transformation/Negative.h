@@ -7,8 +7,6 @@ class Negative : public Transformer{
 public:
     Negative();
 
-    Negative(ActionType type, bool isFilter);
-
     Negative(const Negative& other) = default;
 
     Negative& operator=(const Negative& other) = default;
@@ -19,7 +17,7 @@ public:
 
     Image& transform(Image& img) const override;
 
-    Transformer* clone() const override;
+    Negative* clone() const override;
 };
 
 

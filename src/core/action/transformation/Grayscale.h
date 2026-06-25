@@ -8,8 +8,6 @@ class Grayscale : public Transformer{
 public:
     Grayscale();
 
-    Grayscale(ActionType type, bool isFilter);
-
     Grayscale(const Grayscale& other) = default;
 
     Grayscale& operator=(const Grayscale& other) = default;
@@ -20,7 +18,7 @@ public:
 
     Image& transform(Image& img) const override;
 
-    Transformer* clone() const override;
+    Grayscale* clone() const override;
 
 };
 

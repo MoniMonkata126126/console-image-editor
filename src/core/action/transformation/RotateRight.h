@@ -7,8 +7,6 @@ class RotateRight : public Transformer {
 public:
     RotateRight();
 
-    RotateRight(ActionType type, bool isFilter);
-
     RotateRight(const RotateRight& other) = default;
 
     RotateRight& operator=(const RotateRight& other) = default;
@@ -19,7 +17,7 @@ public:
 
     Image& transform(Image& img) const override;
 
-    Transformer* clone() const override;
+    RotateRight* clone() const override;
 };
 
 

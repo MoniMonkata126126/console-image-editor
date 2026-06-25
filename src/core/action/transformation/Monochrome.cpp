@@ -1,6 +1,6 @@
 #include "Monochrome.h"
 #include "ActionHandler.h"
-#include "CustomExceptions.h"
+
 
 static unsigned char grayOf(const Pixel& pixel) {
     return static_cast<unsigned char>((static_cast<int>(pixel.red) +
@@ -11,11 +11,6 @@ static unsigned char grayOf(const Pixel& pixel) {
 Monochrome::Monochrome() : Transformer(ActionType::MONOCHROME, true) {
 }
 
-Monochrome::Monochrome(ActionType type, bool isFilter) : Transformer(type, isFilter) {
-    if (!isFilter) {
-        throw CustomExceptions::ACTION_TYPE_IS_FILTER;
-    }
-}
 
 void Monochrome::handle(ActionHandler *actionHandler) {
     actionHandler->handleAction(this);
@@ -26,8 +21,11 @@ Image & Monochrome::transform(Image &img) const {
         return img;
     }
 
-    for (int y = 0; y < img.getHeight(); y++) {
-        for (int x = 0; x < img.getWidth(); x++) {
+    int height = img.getHeight();
+    int width = img.getWidth();
+
+    for (int y = 0; y < height; y++) {
+        for (int x = 0; x < width; x++) {
             unsigned char gray = grayOf(img.pixelAt(x, y));
             unsigned char value = gray < 128 ? 0 : 255;
             img.pixelAt(x, y) = Pixel(value, value, value);
@@ -37,6 +35,6 @@ Image & Monochrome::transform(Image &img) const {
     return img;
 }
 
-Transformer * Monochrome::clone() const {
+Monochrome * Monochrome::clone() const {
     return new Monochrome(*this);
 }

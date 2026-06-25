@@ -3,14 +3,9 @@
 #include "Application.h"
 #include "action/Add.h"
 #include "action/Close.h"
-#include "action/Exit.h"
-#include "action/ListSession.h"
 #include "action/Load.h"
 #include "action/Paste.h"
-#include "action/Redo.h"
-#include "action/Save.h"
 #include "action/Switch.h"
-#include "action/Undo.h"
 #include "action/UnknownAction.h"
 
 ActionHandler::ActionHandler(Application *application) : application(application) {
